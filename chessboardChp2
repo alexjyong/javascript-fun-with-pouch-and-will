@@ -1,0 +1,22 @@
+// Your code here.
+size = 8;
+let string = "";
+counter =0;
+counter2 = 0;
+while (counter <= size){
+  
+  while (counter2 <= size) {
+    let sum = counter + counter2;
+    if (sum % 2 ==0) {
+     string += "⬜"; 
+    }
+    else {
+     string += "⬛"; 
+    }
+    counter2 +=1;
+  }
+  counter2 = 0;
+  counter += 1;
+  console.log(string + "\n");
+  string = "";
+}
