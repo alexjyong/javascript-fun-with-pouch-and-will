@@ -1,0 +1,8 @@
+// Your code here.
+let string = "#";
+var counter =0;
+while (counter < 8) {
+  console.log(string);
+  string += "#";
+  counter = counter +1;
+}
