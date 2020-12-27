@@ -1,0 +1,19 @@
+// Your code here.
+function min (x,y) {
+ 
+  if (x > y) {
+    return y; 
+  }
+  else if (y > x) {
+     return x; 
+  }
+  else {
+    return "Equal numbers yo."; 
+  }
+  
+}
+
+console.log(min(0, 10));
+// → 0
+console.log(min(0, -10));
+// → -10
