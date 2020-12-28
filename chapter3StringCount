@@ -1,0 +1,24 @@
+// Your code here.
+function countBs(leString) {
+  return countChar(leString, "B");
+}
+
+function countChar(leString, countChar) {
+  
+  var stringLength = leString.length;
+  var count=0;
+  for (var i =0 ; i < stringLength; i++) {
+   
+  	var char = leString[i];
+    if (char == countChar) {
+      count = count + 1;
+    }
+  }
+  return count;
+  
+}
+
+console.log(countBs("BBC"));
+// → 2
+console.log(countChar("kakkerlak", "k"));
+// → 4
