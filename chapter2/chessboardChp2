@@ -1,11 +1,11 @@
 // Your code here.
-let size = 8;
+const SIZE = 8;
 let string = "";
 counter =0;
 counter2 = 0;
-while (counter <= size){
+while (counter < SIZE){
   
-  while (counter2 <= size) {
+  while (counter2 < SIZE) {
     let sum = counter + counter2;
     if (sum % 2 ==0) {
      string += "⬜"; 
