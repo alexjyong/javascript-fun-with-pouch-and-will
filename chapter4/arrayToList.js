@@ -34,15 +34,43 @@ function listToArray(leList){
   }//end while
   return returnList;
 }//end listToArray
+
+function prepend(leElement, leList) {
+  
+  finalList = {value:leElement, rest:leList};
+  return finalList;
+}//end prepend function
+
+function nth(leList, lePosition) {
+ 
+  let returnValue;
+  let currentDepth =0;
+  
+  //loop thru list
+  while(1) {
+   	 currentValue = leList.value;
+     if (currentDepth == lePosition){
+      	returnValue = currentValue;
+        break;
+     }
+     leList = leList.rest;
+     if (!leList){
+      break; 
+     }
+     currentDepth = currentDepth +1;
+  }
+  return returnValue;
+  
+}
+
 console.log(arrayToList([10, 20]));
 // → {value: 10, rest: {value: 20, rest: null}}
 console.log(listToArray(arrayToList([10, 20, 30])));
-
 // → [10, 20, 30]
-/* 
 console.log(prepend(10, prepend(20, null)));
-
-// → {value: 10, rest: {value: 20, rest: null}}
 console.log(nth(arrayToList([10, 20, 30]), 1));
+/* 
+// → {value: 10, rest: {value: 20, rest: null}}
+
 */
 // → 20
