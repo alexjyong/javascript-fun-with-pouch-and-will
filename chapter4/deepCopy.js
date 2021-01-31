@@ -34,32 +34,44 @@ function deepEqual(obj1, obj2) {
     }
   }
   else {
-   	var keys1 = obj1.keys;
-    var keys2 = obj2.keys;
+   	var keys1 = Object.keys(obj1);
+    var keys2 = Object.keys(obj2);
+    //if the length of the keys is different....
+    //the objects are def not the same :)
+    var length1 = keys1.length;
+    var length2 = keys2.length;
+    if (length1 != length2) {
+     	return false; 
+    }
     
-    for (var i =0; i<= keys1.length; i++) {
+    for (var i =0; i< keys1.length; i++) {
      	var key1 = keys1[i];
-      	var value1 = obj1.key1;
-      for(var j = 0; j<= keys2.length; j++) {
-        var key2 = keys2[j];
-        var value2 = obj2.key2;
-        if (key2 === key1) {
-         	if (value1 == value2){
-              
-            }
+      	var value1 = obj1[key1];
+      	if (obj2[key1]){
+          var value2 = obj2[key1];
+          console.log(value1 == value2);
+          if (value1 !== value2){
+            
+           	return false; 
+          }
         }
-      }
-      
+      	else {
+         	return false; 
+        }
     }
   }
   
-  
+  return true;
 }//deepEqual end
 
 let obj = {here: {is: "an"}, object: 2};
+
 console.log(deepEqual(obj, obj));
 // → true
+/*
 console.log(deepEqual(obj, {here: 1, object: 2}));
 // → false
+*/
+
 console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // → true
