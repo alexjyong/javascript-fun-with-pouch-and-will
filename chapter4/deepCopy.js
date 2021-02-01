@@ -56,7 +56,15 @@ function deepEqual(obj1, obj2) {
       	let value1 = obj1[key1];
       	if (obj2[key1]){
           let value2 = obj2[key1];
-          if (value1 !== value2){ 
+          
+          //if they are both objects, then go and call this function recursively.
+          if (typeof(value1) == "object" && typeof(value2) == "object") { 
+            let retVal=deepEqual(value1, value2);
+            if (!retVal){
+              return false
+            }
+          }
+          else if (value1 !== value2){ 
            	return false; 
           }
         }
