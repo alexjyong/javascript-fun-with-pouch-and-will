@@ -52,7 +52,7 @@ function deepEqual(obj1, obj2) {
     
     //loop through all the keys, and compare the values between the two.
     for (let i =0; i< keys1.length; i++) {
-     	let key1 = keys1[i];
+     	 let key1 = keys1[i];
       	let value1 = obj1[key1];
       	if (obj2[key1]){
           let value2 = obj2[key1];
