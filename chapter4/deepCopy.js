@@ -2,8 +2,10 @@
 
 function deepEqual(obj1, obj2) {
  
-  var value1;
-  var value2;
+  let value1;
+  let value2;
+ //if nothing is passed in, define value1 as null
+ //typeof null is read as an object
   if (obj1 == null){
     value1 = null; 
   }
@@ -11,6 +13,7 @@ function deepEqual(obj1, obj2) {
     value1 = typeof(obj1);
   }
   
+ //ditto as the above. 
   if (obj2 == null){
    	value2 = null; 
   }
@@ -21,6 +24,7 @@ function deepEqual(obj1, obj2) {
   if (value1 == "object" && value2 != "object"){
    	return false 
   }
+ //same as above, but vice versa.
   if (value1 != "object" && value2 == "object"){
    	return false 
   }
@@ -34,21 +38,24 @@ function deepEqual(obj1, obj2) {
     }
   }
   else {
-   	var keys1 = Object.keys(obj1);
-    var keys2 = Object.keys(obj2);
+   
+   //get the keys from the Objects
+   	let keys1 = Object.keys(obj1);
+    let keys2 = Object.keys(obj2);
     //if the length of the keys is different....
     //the objects are def not the same :)
-    var length1 = keys1.length;
-    var length2 = keys2.length;
+    let length1 = keys1.length;
+    let length2 = keys2.length;
     if (length1 != length2) {
      	return false; 
     }
     
-    for (var i =0; i< keys1.length; i++) {
-     	var key1 = keys1[i];
-      	var value1 = obj1[key1];
+    //loop through all the keys, and compare the values between the two.
+    for (let i =0; i< keys1.length; i++) {
+     	let key1 = keys1[i];
+      	let value1 = obj1[key1];
       	if (obj2[key1]){
-          var value2 = obj2[key1];
+          let value2 = obj2[key1];
           if (value1 !== value2){ 
            	return false; 
           }
@@ -63,7 +70,6 @@ function deepEqual(obj1, obj2) {
 }//deepEqual end
 
 let obj = {here: {is: "an"}, object: 2};
-
 console.log(deepEqual(obj, obj));
 // → true
 console.log(deepEqual(obj, {here: 1, object: 2}));
